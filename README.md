@@ -6,7 +6,7 @@
 
 Main function of the app is to convert one currency from another with specified amount of money. List of currencies and rates are fetched from European Central Bank website.
 After user is logged in the app, he can choose the amount of money he wants to convert, source currency and target currency. After that currencies are fetched from the database
-and the reuslt is shown on the screen. Also, all currency conversions are saved in the history tab, which user can see pressing the 'Show History' button.
+and the result is shown on the screen. Also, all currency conversions are saved in the history tab, which user can see pressing the 'Show History' button.
 
 ### Technologies used: 
 
