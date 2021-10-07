@@ -12,11 +12,14 @@ const Container = () => {
     }
 
     return (
-        <div>
+        <div className="bg-light bg-gradient">
           <ExchangeBar />
-           {state ? <button className="btn btn-danger" onClick={showHistory}>Hide History</button> : <button className="btn btn-warning" onClick={showHistory}>Show History</button>}
+
+           {state ? <button className="btn btn-danger m-3" onClick={showHistory}>Hide History</button> : <button className="btn btn-warning m-3" onClick={showHistory}>Show History</button>}
+
            {state ?  <History /> : null }
-          <Currencies />
+
+          <Currencies/>
 
         </div>
     )

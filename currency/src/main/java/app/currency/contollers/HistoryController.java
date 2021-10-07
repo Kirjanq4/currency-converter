@@ -1,6 +1,5 @@
 package app.currency.contollers;
 
-
 import app.currency.entities.History;
 import app.currency.repositories.HistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;

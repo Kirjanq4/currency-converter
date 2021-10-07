@@ -4,17 +4,19 @@ import CurrencyService from "../../services/CurrencyService";
 const Currencies = () => {
   const [currencies, setcurrencies] = useState([]);
 
-  useEffect(() => {
+  useEffect(() => { 
     CurrencyService.getCurrencies().then((response) => {
       setcurrencies(response.data);
     });
   }, []);
 
   return (
-    <div className="container border border-3 p-3">
+    <div className="container border border-3 p-3 my-2"> 
       <h3 className="text-center">
-        All currencies quoted against the euro (base currency)
+        <i>All currencies quoted against the euro (base currency)
+          </i>
       </h3>
+      <hr/>
       <table className="table table-striped">
         <thead>
           <tr>

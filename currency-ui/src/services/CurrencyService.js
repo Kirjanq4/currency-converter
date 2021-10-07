@@ -3,7 +3,6 @@ import axios from "axios";
 const CURRENCIES_REST_API_URL = "http://localhost:8080/currencies";
 const HISTORY_REST_API_URL = "http://localhost:8080/history";
 
-
 class CurrencyService {
   // fetching currencies from api
   getCurrencies() {

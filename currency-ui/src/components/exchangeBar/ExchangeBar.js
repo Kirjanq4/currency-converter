@@ -14,11 +14,12 @@ const ExchangeBar = () => {
   let resultBlock;
   if (result > null) {
     resultBlock = (
-      <div>
+      <div className="">
         {amount} {currencyOne.name} ={" "}
         <b>
           {result.toFixed(3)} {currencyTwo.name}
         </b>
+        <hr/>
       </div>
     );
   } else resultBlock = <div></div>;
@@ -66,9 +67,7 @@ const ExchangeBar = () => {
       res.toFixed(3),
       resultRate.toFixed(3),
       new Date()
-    );
-   
-    
+      );
   };
 
   //reset result div
@@ -77,11 +76,11 @@ const ExchangeBar = () => {
   };
 
   return (
-    <div className="container">
-      <div className="row m-3">
+    <div className="container-fluid p-2">
+      <div className="row m-3 py-2">
         <div className="col">
           <h5>Amount</h5>
-          <input type="text" className="form-control" onChange={getAmount} />
+          <input type="number" placeholder="0.000" className="form-control" onChange={getAmount} />
         </div>
         <div className="col">
           <h5>From</h5>
@@ -109,10 +108,10 @@ const ExchangeBar = () => {
       <div className="row m-3">
         <div className="col">{resultBlock}</div>
         <div className="col ">
-          <button className="btn btn-danger" onClick={Reset}>
+          <button className="btn btn-danger px-5"  onClick={Reset}>
             Reset
           </button>
-          <button className="btn btn-warning float-end" onClick={convert}>
+          <button className="btn btn-warning float-end px-5" onClick={convert}>
             Convert
           </button>
         </div>

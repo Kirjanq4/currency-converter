@@ -1,22 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Container from "../container/Container";
 
 const Login = () => {
+
   const [userData, setUserData] = useState({
     username: "",
     password: "",
     isAuthenticated: false,
     open: false,
   });
-  const [loggedUser, setLoggedUser] = useState("");
-
-  useEffect(() => {
-    const existUser = sessionStorage.getItem('user')
-    if(existUser) {
-      const foundUser = JSON.parse(existUser);
-      setLoggedUser(foundUser);
-    }
-  }, [])
   
   const handleChange = (e) => {
     setUserData({ ...userData,[e.target.name]: e.target.value });
@@ -36,17 +28,13 @@ const Login = () => {
           sessionStorage.setItem("jwt", jwtToken);
           sessionStorage.setItem('user', newUser)
           setUserData({isAuthenticated: true });
-          setLoggedUser(userData.username)
-        
-          
+          window.location.reload(false); 
         } else {
           setUserData({ open: true });
         }
       })
       .catch((err) => console.error(err));
   };
-
-  
 
   if (userData.isAuthenticated === true) {
     return <Container />;
@@ -56,8 +44,7 @@ const Login = () => {
     }
     else {
     return (
-      <div id="login">
-        <h3 className="text-center text-white pt-5">Login form</h3>
+      <div id="login" className="container-fluid p-5 bg-light bg-gradient vh-100">
         <div className="container">
           <div
             id="login-row"
@@ -65,7 +52,7 @@ const Login = () => {
           >
             <div id="login-column" className="col-md-6">
               <div id="login-box" className="col-md-12">
-                <div className="form-group">
+                <div className="form-group m-2">
                   <input
                     type="text"
                     name="username"
@@ -74,7 +61,7 @@ const Login = () => {
                     placeholder="username"
                   />
                 </div>
-                <div className="form-group">
+                <div className="form-group m-2">
                   <input
                     type="password"
                     name="password"
@@ -87,7 +74,7 @@ const Login = () => {
                   type="submit"
                   name="submit"
                   onClick={login}
-                  className="btn btn-info btn-md"
+                  className="btn btn-info btn-md my-2 p-2 w-50"
                   value="Login"
                 />
               </div>

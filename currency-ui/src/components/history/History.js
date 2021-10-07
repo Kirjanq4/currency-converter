@@ -4,7 +4,7 @@ import moment from "moment";
 
 const History = () => {
   const [history, setHistory] = useState([]);
-
+  
   useEffect(() => {
     CurrencyService.getHistory().then((response) => {
       setHistory(response.data);
@@ -13,20 +13,21 @@ const History = () => {
 
   return (
     <div>
-      
-      <h3>Hello History</h3>
       {history.map((history, id) => (
-        <div key={id} className="container bg-light p-5 border">
+        <div key={id} className="container bg-light p-2 my-2 border">
           <div>
-            <h6>
-              {moment(history.date).format("DD/MM/yy")} at{" "}
-              {moment(history.date).format("HH:mm:ss")}
-            </h6>
-            <hr />
+            <b>
             {history.amount} {history.firstCurrency} = {history.result}{" "}
-            {history.secondCurrency} <hr />
+            {history.secondCurrency} 
+            </b>
+            <div>
+              <i>
+              {moment(history.date).local().format("DD/MM/yy")} at{" "}
+              {moment(history.date).local().format("HH:mm:ss")}
+              </i>
+            </div>
           </div>
-          <div>
+          <div className="m-2">
             1 {history.firstCurrency} = {history.rate} {history.secondCurrency}
           </div>
         </div>

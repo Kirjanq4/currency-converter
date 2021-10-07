@@ -23,18 +23,14 @@ public class CurrencyApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CurrencyApplication.class, args);
-
 	}
 
 	@Bean
 	CommandLineRunner runner() {
 		return args -> {
-
-		userRepository.save(new User("admin", "$2a$04$KNLUwOWHVQZVpXyMBNc7JOzbLiBjb9Tk9bP7KNcPI12ICuvzXQQKG"));
-
 			xmlService.parseXml();
+			userRepository.save(new User("admin", "$2a$04$KNLUwOWHVQZVpXyMBNc7JOzbLiBjb9Tk9bP7KNcPI12ICuvzXQQKG"));
 		};
-
 	}
 }
 
